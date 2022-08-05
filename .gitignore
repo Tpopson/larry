@@ -4,3 +4,5 @@
 __pycache__/
 local_settings.py
 venv
+ssh key: ssh -i "larry.pem" ubuntu@ec2-54-227-100-28.compute-1.amazonaws.com
+ssh -i "larry.pem" ubuntu@ec2-54-227-100-28.compute-1.amazonaws.com
