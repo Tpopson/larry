@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+{% load static %}
+{% load simple_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <!-- font awesome cdn link  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!-- font awesome link done -->
+    <!-- custom css link  -->
+    <link rel="stylesheet" href="{% static '' %}css/main.css"> 
+    <!-- custom css link done -->
+    <title>Larry Soft</title>
+</head>
+<body>
+    <!-- header -->
+    <header class="hearder">
+        <div id="menu-btn" class="fas fa-bars"></div>
+        <a href="{% intralink 'index' 'home' %}" class="logo"><span>larry</span>soft</a>
+        <nav class="navbar">
+            <a href="{% intralink 'index' 'home' %}">home</a> 
+            <a href="{% intralink 'index' 'services' %}">services</a>
+            <a href="{% intralink 'index' 'featured' %}">featured</a>
+            <!-- <a href="">reviews</a> -->
+            <a href="{% intralink 'index' 'contact' %}">contact</a>
+            <a href="#" class="toggle">
+                <i class="fas fa-moon"></i>
+            </a>
+        </nav>
+    </header>
+    <!-- header done -->
+    
+    {% if messages %}
+        {% for item in messages %}
+            <div class="alert">
+                <strong>{{item}}!</strong>
+                <button type="button" class="btn"></button>
+            </div>
+        {% endfor %}
+    {% endif %}
+    <!-- home section  -->
+    <section class="home" id="home">
+        <h1 class="home-parallax" data-speed="-2">{{company.title|title}}</h1>
+        <img class="home-parallax" data-speed="-2" src="{{company.banner.url}}">
+        <!-- <a href="#services" class="btn home-parallax" data-speed="7">our services</a> -->
+    </section>
+    <!-- home section done -->
+
+    <!-- icon section  -->
+    <section class="icons-container">
+        <!--  -->
+        <div class="icons">
+            <i class="fas fa-car"></i>
+            <div class="content">
+                <h3>400+</h3>
+                <p>services rendered</p>
+            </div>
+        </div>
+        <!--  -->
+        <!--  -->
+        <div class="icons">
+            <i class="fas fa-users"></i>
+            <div class="content">
+                <h3>200+</h3>
+                <p>happy clients</p>
+            </div>
+        </div>
+        <!--  -->
+        <!--  -->
+        <div class="icons">
+            <i class="fas fa-id-card"></i>
+            <div class="content">
+                <h3>100+</h3>
+                <p>license</p>
+            </div>
+        </div>
+        <!--  -->
+        <!--  -->
+        <div class="icons">
+            <i class="fas fa-car-crash"></i>
+            <div class="content">
+                <h3>100+</h3>
+                <p>insurance</p>
+            </div>
+        </div>
+        <!--  -->
+    </section>
+    <!-- icon section done -->
+
+    
+ <!-- services section  -->
+ <section class="services" id="services">
+    <h1 class="heading">our <span>services</span></h1>
+    <div class="box-container">
+        <!--  -->
+        <div class="box">
+            <i class="fas fa-id-card"></i>
+            <h3>driver's licence</h3>
+            <p>new and renewal</p>
+        </div>
+        <!--  -->
+        <!--  -->
+        <div class="box">
+          <i class="fas fa-file"></i>
+            <h3>vehicle licence</h3>
+            <p>new and renewal</p>
+        </div>
+        <!--  -->
+        <!--  -->
+        <div class="box">
+          <i class="fas fa-road"></i>
+            <h3>road worthiness</h3>
+            <p>new and renewal</p>
+        </div>
+        <!--  -->
+        <!--  -->
+        <div class="box">
+            <i class="fas fa-car-crash"></i>
+            <h3>insurance</h3>
+            <p>comprehensive, third party: new and renewal</p>
+        </div>
+        <!--  -->
+        <!--  -->
+        <div class="box">
+          <i class="fas fa-car"></i>
+            <h3>vehicle ownership</h3>
+            <p>change of vehicle ownership documentation</p>
+        </div>
+        <!--  -->
+          <!--  -->
+        <div class="box">
+            <i class="fas fa-motorcycle"></i>
+            <h3>dispatch rider</h3>
+            <p>dispatch rider documentation, new and renewal</p>
+        </div>
+        <!--  -->
+    </div>
+</section>
+<!-- services section done -->  
+
+    <!-- featured section  -->
+    <section class="featured" id="featured">
+        <h1 class="heading">featured <span>sevices</span></h1>
+        <div class="swiper featured-slider">
+            <div class="swiper-wrapper">
+                {% if service %}
+                    {% for item in service %}                      
+                        <!--  -->
+                        <div class="swiper-slide box">
+                            <a href="#"><img src="{{item.img.url}}"></a>
+                            <h3>{{item.type|title}}</h3>
+                            <div class="stars">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                        <!--  -->
+                    {% endfor %}
+                {% endif %}  
+            </div>
+            <div class="swiper-pagination"></div>
+        </div>
+    </section>
+    <!-- featured section done -->
+
+    <!-- contact seection  -->
+    <section class="contact" id="contact">
+        <h1 class="heading"><span>contact </span>us</h1>
+        <div class="row">
+            <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d253691.
+            85861229245!2d3.22343946119403!3d6.52985723025171!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.
+            1!3m3!1m2!1s0x103b9228fa2a3999%3A0xd7a8324bddbba1f0!2sIkeja!5e0!3m2!1sen!2sng!4v1643124917199!5m2!1sen!2sng"
+             allowfullscreen="" loading="lazy"></iframe>
+            <form action="{% url 'contact' %}" method="POST"> 
+            {% csrf_token %}
+                <h3>get in touch</h3>
+                <input type="text" placeholder="name" class="box name" name="name">
+                <input type="email" placeholder="email" class="box email" name="email">
+                <input type="text" placeholder="phone" class="box phone" name="phone">
+                <textarea placeholder="message" cols="30" rows="5" class="box message" name="message"></textarea>
+                <button type="submit" class="btn">send message</button>
+            </form>
+        </div>
+    </section>
+    <!-- contact seection done -->
+    <!-- footer section -->
+    <section class="footer">
+        <div class="box-container">
+            <div class="box">
+                <h3>our coverage</h3>
+                <a href="#"><i class="fas fa-map-marker-alt"></i>Lagos</a>
+                <a href="#"><i class="fas fa-map-marker-alt"></i>Ogun</a>
+            </div>
+            <div class="box">
+                <h3>scroll links</h3>
+                <a href="{% intralink 'index' 'home' %}"><i class="fas fa-arrow-right"></i>home</a>
+                <a href="{% intralink 'index' 'services' %}"><i class="fas fa-arrow-right"></i>services</a>
+                <a href="{% intralink 'index' 'featured' %}"><i class="fas fa-arrow-right"></i>featured</a>
+                <a href="{% intralink 'index' 'contact' %}"><i class="fas fa-arrow-right"></i>contact</a>
+            </div>
+            <div class="box">
+                <h3>contact links</h3>
+                <a href="#"><i class="fas fa-phone"></i>{{company.mobile}}</a>
+                <a href="#"><i class="fas fa-phone"></i>{{company.mobile2}}</a>
+                <a href=""><i class="fas fa-envelope"></i>{{company.email}}</a>
+                <a href=""><i class="fas fa-map-marker-alt"></i>{{company.address|title}}</a>
+                <a href=""></a>
+            </div>
+            <div class="box">
+                <h3>quick links</h3>
+                <a href="#"><i class="fab fa-facebook-f"></i>facebook</a>
+                <a href="#"><i class="fab fa-twitter"></i>twitter</a>
+                <a href="#"><i class="fab fa-instagram"></i>instagram</a>
+                <a href="#"><i class="fab fa-linkedin"></i>linkedin</a>
+                <a href="#"><i class="fab fa-whatsapp"></i>whatsapp</a>
+            </div>
+        </div>
+        <div class="credit">  
+            <p>&copy;Copyright <span>{{company.copyright_year}}</span> Larrysoft | all rights reserved!</p>
+            <a href="#">crafted by Tdevpro</a>
+        </div>
+    </section>
+    <!-- footer section done --> 
+
+
+    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+    <!-- custom js link  -->
+    <script>
+        let menu = document.querySelector('#menu-btn');
+let navbar = document.querySelector('.navbar');
+
+menu.onclick = () =>{
+  menu.classList.toggle('fa-times');
+  navbar.classList.toggle('active');
+}
+
+window.onscroll = () =>{
+  if(window.scrollY > 0){
+      document.querySelector('.hearder').classList.add('active');
+  }else{
+      document.querySelector('.hearder').classList.remove('active');
+  }
+  
+  menu.classList.remove('fa-times');
+  navbar.classList.remove('active');
+}
+
+window.onload = () =>{
+  if(window.scrollY > 0){
+      document.querySelector('.hearder').classList.add('active');
+  }else{
+      document.querySelector('.hearder').classList.remove('active');
+  }
+}
+
+document.querySelector('.home').onmousemove = (e) => {
+    document.querySelectorAll('.home-parallax').forEach(elm =>{
+        let speed = elm.getAttribute('data-speed');
+
+        let x = (window.innerWidth - e.pageX * speed)/90;
+        let y = (window.innerHeight - e.pageY * speed)/90;
+
+        elm.style.transform = `translateX(${y}px) translateY(${x}px)`;
+    });
+};
+document.querySelector('.home').onmouseleave = () => {
+    document.querySelectorAll('.home-parallax').forEach(elm =>{
+        elm.style.transform = `translateX(0px) translateY(0px)`;
+    });
+};
+
+
+
+// featured section 
+var swiper = new Swiper(".featured-slider", {
+  slidesPerView: 1,
+  spaceBetween: 20,
+  loop: true,
+  grabCursor: true,
+  centeredSlides: true,
+  autoplay: {
+      delay: 9500,
+      disableOnInteraction: false,
+    },
+  pagination: {
+    el: ".swiper-pagination",
+    clickable: true,
+  },
+  breakpoints: {
+    0: {
+      slidesPerView: 1,
+    },
+    768: {
+      slidesPerView: 2,
+    },
+    991: {
+      slidesPerView: 3,
+    },
+  },
+});
+// featured section done
+
+    </script>
+    <script src="{% static '' %}js/style.js"></script>
+    <!-- custom js link done -->
+</body>
+</html>
