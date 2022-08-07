@@ -590,6 +590,14 @@ section{
     }
     .heading{
         font-size: 2rem;
+        bottom: 0; left: 0;
+        top: 5rem;
+    }
+    .heading span{
+        color: var(--btn);
+    }
+    .heading span::before{
+        bottom: .1rem;
     }
     .footer {
         padding-left: 12%;
